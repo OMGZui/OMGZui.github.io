@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小粽子的领地">
 <meta property="og:description" content="小粽子mac下关闭端口我们经常会碰到这样的情况，一个vue或者react使用control+z退出的，再使用yarn start显示占用端口了 12345678910# 查看端口lsof -i:4000输出COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAMEnode    75518 shengj   15u">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T03:48:00.000Z">
+<meta property="og:updated_time" content="2018-04-09T03:20:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小粽子开始了">
 <meta name="twitter:description" content="小粽子mac下关闭端口我们经常会碰到这样的情况，一个vue或者react使用control+z退出的，再使用yarn start显示占用端口了 12345678910# 查看端口lsof -i:4000输出COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAMEnode    75518 shengj   15u">
@@ -377,6 +377,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 查看端口</span></span><br><span class="line">lsof -i:4000</span><br><span class="line"></span><br><span class="line">输出</span><br><span class="line">COMMAND   PID   USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME</span><br><span class="line">node    75518 shengj   15u  IPv4 0xda7f2e249308279f      0t0  TCP *:terabase (LISTEN)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀掉进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 75518</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>又可以欢乐的使用了</p>
+<h2 id="Git忽略规则及-gitignore规则不生效的解决办法"><a href="#Git忽略规则及-gitignore规则不生效的解决办法" class="headerlink" title="Git忽略规则及.gitignore规则不生效的解决办法"></a>Git忽略规则及.gitignore规则不生效的解决办法</h2><p>在git中如果想忽略掉某个文件，不让这个文件提交到版本库中，可以使用修改根目录中 .gitignore 文件的方法（如无，则需自己手工建立此文件）。这个文件每一行保存了一个匹配的规则例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">此为注释 – 将被 Git 忽略</span><br><span class="line"></span><br><span class="line">*.cs       # 忽略所有 .cs 结尾的文件</span><br><span class="line">!ABC.cs    # 但 ABC.cs 除外</span><br><span class="line">/BLL       # 仅仅忽略项目根目录下的 BLL 文件，不包括 subdir/BLL</span><br><span class="line">build/     # 忽略 build/ 目录下的所有文件</span><br><span class="line">doc/*.txt  # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span><br></pre></td></tr></table></figure>
+<p>规则很简单，不做过多解释，但是有时候在项目开发过程中，突然心血来潮想把某些目录或文件加入忽略规则，按照上述方法定义后发现并未生效，原因是.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。那么解决方法就是先把本地缓存删除（改变成未track状态），然后再提交：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m &apos;update .gitignore&apos;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -595,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小粽子"><span class="nav-number">1.</span> <span class="nav-text">小粽子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mac下关闭端口"><span class="nav-number">1.1.</span> <span class="nav-text">mac下关闭端口</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小粽子"><span class="nav-number">1.</span> <span class="nav-text">小粽子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mac下关闭端口"><span class="nav-number">1.1.</span> <span class="nav-text">mac下关闭端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git忽略规则及-gitignore规则不生效的解决办法"><span class="nav-number">1.2.</span> <span class="nav-text">Git忽略规则及.gitignore规则不生效的解决办法</span></a></li></ol></li></ol></div>
             
 
           </div>
