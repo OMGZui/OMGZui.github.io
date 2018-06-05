@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="小粽子" />
+  <meta name="keywords" content="配置," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="前言：laravel模块解读 配置 configconfig文件夹里只有一个Repository.php文件，该类实现了：  ArrayAccess php官方提供的对象数组化接口 Illuminate\Contracts\Config\Repository laravel契约中的配置接口  该类在laravel的功能可以从config()函数透露出 12345678910111213141516">
+<meta name="keywords" content="配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://www.omgzui.win/2017/12/21/hello-world/index.html">
+<meta property="og:title" content="laravel模块之配置">
+<meta property="og:url" content="http://www.omgzui.win/2018/06/05/laravel模块之配置/index.html">
 <meta property="og:site_name" content="小粽子的领地">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言：laravel模块解读 配置 configconfig文件夹里只有一个Repository.php文件，该类实现了：  ArrayAccess php官方提供的对象数组化接口 Illuminate\Contracts\Config\Repository laravel契约中的配置接口  该类在laravel的功能可以从config()函数透露出 12345678910111213141516">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-21T11:25:38.000Z">
+<meta property="og:updated_time" content="2018-06-05T14:58:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="laravel模块之配置">
+<meta name="twitter:description" content="前言：laravel模块解读 配置 configconfig文件夹里只有一个Repository.php文件，该类实现了：  ArrayAccess php官方提供的对象数组化接口 Illuminate\Contracts\Config\Repository laravel契约中的配置接口  该类在laravel的功能可以从config()函数透露出 12345678910111213141516">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.omgzui.win/2017/12/21/hello-world/"/>
+  <link rel="canonical" href="http://www.omgzui.win/2018/06/05/laravel模块之配置/"/>
 
 
 
 
 
-  <title>Hello World | 小粽子的领地</title>
+  <title>laravel模块之配置 | 小粽子的领地</title>
   
 
 
@@ -272,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.omgzui.win/2017/12/21/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://www.omgzui.win/2018/06/05/laravel模块之配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小粽子">
@@ -289,7 +290,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Hello World</h2>
+          <h2 class="post-title" itemprop="name headline">laravel模块之配置</h2>
         
 
         <div class="post-meta">
@@ -301,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T19:25:38+08:00">
-                2017-12-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-05T22:43:32+08:00">
+                2018-06-05
               </time>
             
 
@@ -312,6 +313,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">laravel</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -320,9 +343,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/21/hello-world/#comments" itemprop="discussionUrl">
+                <a href="/2018/06/05/laravel模块之配置/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/21/hello-world/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/06/05/laravel模块之配置/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,15 +373,15 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>前言：laravel模块解读</p>
+<h2 id="配置-config"><a href="#配置-config" class="headerlink" title="配置 config"></a>配置 config</h2><p>config文件夹里只有一个Repository.php文件，该类实现了：</p>
+<ul>
+<li>ArrayAccess php官方提供的对象数组化接口</li>
+<li>Illuminate\Contracts\Config\Repository laravel契约中的配置接口</li>
+</ul>
+<p>该类在laravel的功能可以从<code>config()</code>函数透露出</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'config'</span>)) &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get / set the specified configuration value.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * If an array is passed as the key, we will assume you want to set an array of values.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array|string  $key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  mixed  $default</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed|\Illuminate\Config\Repository</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">config</span><span class="params">($key = null, $default = null)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (is_null($key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> app(<span class="string">'config'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (is_array($key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> app(<span class="string">'config'</span>)-&gt;set($key);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> app(<span class="string">'config'</span>)-&gt;get($key, $default);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Set a given configuration value.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array|string  $key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  mixed   $value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span><span class="params">($key, $value = null)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $keys = is_array($key) ? $key : [$key =&gt; $value];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ($keys <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">            Arr::set(<span class="keyword">$this</span>-&gt;items, $key, $value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  &#123;<span class="doctag">@inheritdoc</span>&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">($id)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;has($id)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resolve($id);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> EntryNotFoundException;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出配置模块主要是为了给用户通过<code>容器</code>方便<code>设置</code>和<code>获取</code>可配置变量</p>
 
       
     </div>
@@ -374,6 +397,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/配置/" rel="tag"># 配置</a>
+          
+        </div>
+      
 
       
       
@@ -383,15 +412,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/06/05/laravel模块之文件系统/" rel="next" title="laravel模块之文件系统">
+                <i class="fa fa-chevron-left"></i> laravel模块之文件系统
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/21/小粽子开始了/" rel="prev" title="小粽子开始了">
-                小粽子开始了 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-config"><span class="nav-number">1.</span> <span class="nav-text">配置 config</span></a></li></ol></div>
             
 
           </div>
@@ -733,9 +762,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://www.omgzui.win/2017/12/21/hello-world/';
-          this.page.identifier = '2017/12/21/hello-world/';
-          this.page.title = 'Hello World';
+          this.page.url = 'http://www.omgzui.win/2018/06/05/laravel模块之配置/';
+          this.page.identifier = '2018/06/05/laravel模块之配置/';
+          this.page.title = 'laravel模块之配置';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://omgzui.disqus.com/embed.js';
