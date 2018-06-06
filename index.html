@@ -375,18 +375,20 @@
 
       
         
-          
-            <p>前言：laravel模块解读</p>
+          <p>前言：laravel模块解读</p>
 <h2 id="配置-config"><a href="#配置-config" class="headerlink" title="配置 config"></a>配置 config</h2><p>config文件夹里只有一个Repository.php文件，该类实现了：</p>
 <ul>
 <li>ArrayAccess php官方提供的对象数组化接口</li>
 <li>Illuminate\Contracts\Config\Repository laravel契约中的配置接口</li>
 </ul>
 <p>该类在laravel的功能可以从<code>config()</code>函数透露出</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (! function_exists(<span class="string">'config'</span>)) &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Get / set the specified configuration value.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * If an array is passed as the key, we will assume you want to set an array of values.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array|string  $key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  mixed  $default</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> mixed|\Illuminate\Config\Repository</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">config</span><span class="params">($key = null, $default = null)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (is_null($key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> app(<span class="string">'config'</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (is_array($key)) &#123;</span><br><span class="line">            <span class="keyword">return</span> app(<span class="string">'config'</span>)-&gt;set($key);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> app(<span class="string">'config'</span>)-&gt;get($key, $default);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Set a given configuration value.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  array|string  $key</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  mixed   $value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">set</span><span class="params">($key, $value = null)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $keys = is_array($key) ? $key : [$key =&gt; $value];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ($keys <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">            Arr::set(<span class="keyword">$this</span>-&gt;items, $key, $value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  &#123;<span class="doctag">@inheritdoc</span>&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">($id)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;has($id)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;resolve($id);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> EntryNotFoundException;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>可以看出配置模块主要是为了给用户通过<code>容器</code>方便<code>设置</code>和<code>获取</code>可配置变量</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/05/laravel模块之配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -536,25 +538,16 @@
 
       
         
-          
-            <p>前言：laravel模块解读</p>
+          <p>前言：laravel模块解读</p>
 <h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><p>查看composer.json</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"require"</span>: &#123;</span><br><span class="line">    <span class="string">"php"</span>: <span class="string">"^7.1.3"</span>,</span><br><span class="line">    <span class="string">"illuminate/contracts"</span>: <span class="string">"5.7.*"</span>,</span><br><span class="line">    <span class="string">"illuminate/support"</span>: <span class="string">"5.7.*"</span>,</span><br><span class="line">    <span class="string">"symfony/finder"</span>: <span class="string">"^4.1"</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p>依赖了laravel公有的组件：</p>
-<ul>
-<li><code>illuminate/contracts</code>    中文名叫契约，其实就是定义了整个laravel的基本接口</li>
-<li><code>illuminate/support</code>      laravel的基本字符串、数组、集合、时间等基本操作</li>
-</ul>
-<p>查看目录filesystem</p>
-<ul>
-<li>Filesystem.php                php文件操作封装类</li>
-<li>FilesystemAdapter             文件系统适配器</li>
-<li>FilesystemManager             文件系统管理者</li>
-<li>FilesystemServiceProvider     文件系统服务提供者</li>
-</ul>
-<p>整个设计自我感觉看起来没有太大难点，是不是太膨胀了，2333，遍历文件夹的时候使用了symfony的Finder模块。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/05/laravel模块之文件系统/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
