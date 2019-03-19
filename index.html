@@ -428,7 +428,16 @@
 <li>登录成功</li>
 </ol>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 开启session会产生一个Session ID，并存储在cookie中</span></span><br><span class="line">session_start();</span><br><span class="line">var_dump($_COOKIE[<span class="string">'PHPSESSID'</span>]); <span class="comment">// 2ij642glsstbfrkg5f55apnnem</span></span><br></pre></td></tr></table></figure>
-<h2 id="4、sso"><a href="#4、sso" class="headerlink" title="4、sso"></a>4、sso</h2><p>多系统应用群中登录一个系统，便可在其他所有系统中得到授权而无需再次登录</p>
+<h2 id="4、微信小程序登录注册流程"><a href="#4、微信小程序登录注册流程" class="headerlink" title="4、微信小程序登录注册流程"></a>4、微信小程序登录注册流程</h2><ol>
+<li>尝试登录，前端通过<code>wx.login()</code>拿到临时<code>code</code>，后端请求<code>code2Session</code>接口，如果返回参数存在<code>session_key</code>，说明有效，而且只有绑定公众号才有<code>unionid</code></li>
+<li>利用unionid获取用户数据，存在则登录成功，不存在则是新用户，前往注册</li>
+<li>前端调用<code>&lt;button&gt;</code>来获取<code>encryptedData和iv</code>，后端通过注册接口拿到参数后进行<code>解密</code>，即可用拿到手机号</li>
+<li>利用手机号进行注册，同时填充必要信息</li>
+<li>发送代金券</li>
+<li>发送短信</li>
+<li>注册统计</li>
+</ol>
+<h2 id="5、sso"><a href="#5、sso" class="headerlink" title="5、sso"></a>5、sso</h2><p>多系统应用群中登录一个系统，便可在其他所有系统中得到授权而无需再次登录</p>
 <ul>
 <li><a href="https://www.cnblogs.com/ywlaker/p/6113927.html" target="_blank" rel="noopener">https://www.cnblogs.com/ywlaker/p/6113927.html</a></li>
 <li><a href="https://juejin.im/post/5a002b536fb9a045132a1727" target="_blank" rel="noopener">https://juejin.im/post/5a002b536fb9a045132a1727</a></li>
